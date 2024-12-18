@@ -1,25 +1,43 @@
 # CISA Power Platform MCP Server
 
-This MCP server implements security controls for Microsoft Power Platform according to CISA BOD 25-01 requirements.
+This Model Context Protocol (MCP) server implements security controls for Microsoft Power Platform according to CISA Binding Operational Directive 25-01.
 
-## Security Controls
+## Overview
+
+The CISA Power Platform MCP server provides tools for configuring and managing Power Platform security settings in accordance with BOD 25-01 requirements. It helps organizations:
+
+- Restrict environment creation capabilities to administrators only
+- Implement Data Loss Prevention (DLP) policies in the default environment
+- Enable tenant isolation for enhanced security
+- Monitor and report on security control compliance
+
+## Security Controls Implementation
 
 ### MS.POWERPLATFORM.1.1v1 & MS.POWERPLATFORM.1.2v1
-- Restricts the ability to create production, sandbox, and trial environments to admins only
-- Due Date: 06/20/2025
+**Due Date: 06/20/2025**
+- Restricts the ability to create production and sandbox environments to admins
+- Restricts the ability to create trial environments to admins
+- Prevents non-admin users from creating any type of environment
+- Ensures centralized control over environment provisioning
 
 ### MS.POWERPLATFORM.2.1v1
-- Creates DLP policy to restrict connector access in the default Power Platform environment
-- Due Date: 06/20/2025
+**Due Date: 06/20/2025**
+- Creates and enforces DLP policy in the default Power Platform environment
+- Restricts connector access based on data sensitivity
+- Prevents unauthorized data sharing and exfiltration
+- Enables granular control over which connectors can be used
 
 ### MS.POWERPLATFORM.3.1v1
+**Due Date: 06/20/2025**
 - Enables Power Platform tenant isolation
-- Due Date: 06/20/2025
+- Prevents cross-tenant data sharing and access
+- Enhances security boundaries between tenants
+- Reduces risk of unauthorized data access
 
 ## Available Tools
 
 ### restrict_environment_creation
-Restricts production, sandbox, and trial environment creation to admins.
+Restricts environment creation capabilities to specified admin groups.
 
 ```json
 {
@@ -28,7 +46,7 @@ Restricts production, sandbox, and trial environment creation to admins.
 ```
 
 ### configure_dlp_policy
-Creates DLP policy to restrict connector access in default environment.
+Creates and configures DLP policies to restrict connector access.
 
 ```json
 {
@@ -37,14 +55,14 @@ Creates DLP policy to restrict connector access in default environment.
 ```
 
 ### enable_tenant_isolation
-Enables Power Platform tenant isolation.
+Enables Power Platform tenant isolation settings.
 
 ```json
 {}
 ```
 
 ### get_policy_status
-Gets current status of all CISA Power Platform security policies.
+Retrieves current status of all CISA Power Platform security policies.
 
 ```json
 {}
@@ -87,6 +105,32 @@ Configure the server in your MCP client settings (e.g., Claude desktop app):
   }
 }
 ```
+
+## Compliance Reporting
+
+The server provides comprehensive reporting capabilities to help track compliance with BOD 25-01 requirements:
+
+- Current status of all security controls
+- Detailed policy configurations
+- Non-compliant settings detection
+- Recommendations for remediation
+
+## Security Considerations
+
+- All credentials and tokens are handled securely through environment variables
+- API calls use Microsoft Graph API with appropriate authentication
+- Changes are logged for audit purposes
+- Tenant isolation is enforced when enabled
+- DLP policies are strictly enforced
+
+## Contributing
+
+Contributions are welcome! Please ensure any pull requests or changes:
+
+1. Include clear documentation
+2. Follow existing code style
+3. Include tests where appropriate
+4. Update security control implementations as BOD requirements evolve
 
 ## License
 
