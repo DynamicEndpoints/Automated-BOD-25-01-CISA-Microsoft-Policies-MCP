@@ -2,6 +2,8 @@
 
 This MCP server implements Microsoft Defender policies according to [CISA BOD 25-01](https://www.cisa.gov/resources-tools/services/bod-25-01-implementing-secure-practices-cloud-services-required-configurations) requirements for Microsoft 365 cloud services.
 
+<a href="https://glama.ai/mcp/servers/rml141i0fk"><img width="380" height="200" src="https://glama.ai/mcp/servers/rml141i0fk/badge" alt="BOD-25-01-CSA-Microsoft-Policy-MCP MCP server" /></a>
+
 ## CISA Policy Implementation
 
 ### Policy Reference
