@@ -1,5 +1,6 @@
 # CISA M365 MCP Server
 
+[![smithery badge](https://smithery.ai/badge/cisa-m365)](https://smithery.ai/server/cisa-m365)
 A Model Context Protocol (MCP) server implementing CISA Binding Operational Directive 25-01 security controls for Microsoft 365 (Azure AD/Entra ID).
 
 ## Table of Contents
@@ -214,6 +215,16 @@ graph TD
   - Application.ReadWrite.All
 
 ## Installation
+
+### Installing via Smithery
+
+To install CISA M365 MCP Server automatically via [Smithery](https://smithery.ai/server/cisa-m365):
+
+```bash
+npx -y @smithery/cli install cisa-m365
+```
+
+You can also directly copy the MCP settings and definitions from [Smithery Protocol Directory](https://smithery.ai/server/cisa-m365) and add the MCP server to your Claude or LLM setup that supports MCP protocol.
 
 1. Clone the repository:
 ```bash
