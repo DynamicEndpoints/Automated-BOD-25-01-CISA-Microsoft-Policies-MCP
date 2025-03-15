@@ -1,0 +1,25 @@
+# Smithery configuration file: https://smithery.ai/docs/config#smitheryyaml
+
+startCommand:
+  type: stdio
+  configSchema:
+    # JSON Schema defining the configuration options for the MCP.
+    type: object
+    required:
+      - tenantId
+      - clientId
+      - clientSecret
+    properties:
+      tenantId:
+        type: string
+        description: The tenant ID of the Microsoft 365 setup.
+      clientId:
+        type: string
+        description: The client ID for the Azure AD application.
+      clientSecret:
+        type: string
+        description: The client secret for the Azure AD application.
+  commandFunction:
+    # A function that produces the CLI command to start the MCP on stdio.
+    |-
+    config => ({command: 'node', args: ['build/index.js'], env: {TENANT_ID: config.tenantId, CLIENT_ID: config.clientId, CLIENT_SECRET: config.clientSecret}})
