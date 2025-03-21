@@ -1034,7 +1034,7 @@ class M365Server {
           compliant: securityDefaults.blockHighRiskUsers,
         },
         highRiskSignins: {
-          blocked: conditionalAccess.value.some(policy => 
+          blocked: conditionalAccess.value.some((policy: any) => 
             policy.displayName === 'Block High Risk Sign-ins' && 
             policy.state === 'enabled'
           ),
@@ -1100,14 +1100,14 @@ class M365Server {
           compliant: true,
         },
         roleAlerts: {
-          configured: alertPolicies.value.some(policy => 
+          configured: alertPolicies.value.some((policy: any) => 
             policy.displayName === 'Privileged Role Assignment Alert' && 
             policy.isEnabled
           ),
           compliant: true,
         },
         adminAlerts: {
-          configured: alertPolicies.value.some(policy => 
+          configured: alertPolicies.value.some((policy: any) => 
             policy.displayName === 'Global Administrator Activation Alert' && 
             policy.isEnabled
           ),
